@@ -1,0 +1,20 @@
+[
+  {
+    "imageUrl": "images/califires.jpg",
+    "title": "Wildfire Housing Assistance",
+    "description": "We are proud to have provided long-term housing solutions to the survivors of the Northern California Wildfires. We are honored to have been part of such an important mission and to have helped so many families and businesses get back on their feet and secure a more stable living environment. Excellence drives us to deliver experiences that exceed expectations and help our clients achieve their goals.",
+    "state": "State of California - 2020"
+  },
+  {
+    "imageUrl": "images/idahurricane.jpg",
+    "title": "Hurricane Ida Housing Assistance",
+    "description": "The damage caused by Hurricane Ida still resonates in the State of Louisiana, and hundreds of families are still struggling with the aftermath. At Lima Charlie, we are proud to have worked to provide immediate housing solutions for hundreds of survivors in the area. Managing emergency accommodations in a disaster zone gives us purpose as a company and as individuals. Helping others get back on their feet is the reason we do what we do. Our commitment to excellence and our passion for making a difference are what drive us to deliver exceptional experiences to our clients.",
+    "state": "State of Louisiana - 2021"
+  },
+  {
+    "imageUrl": "images/floridacane.jpg",
+    "title": "Hurricane Ida Housing Assistance",
+    "description": "At Lima Charlie, we believe that an unprecedented disaster calls for an unprecedented effort for relief. Over the past three months, we have sourced, negotiated, and secured hundreds of housing units in some of the counties most affected by floods, winds, and other dangerous conditions left behind after Hurricane Ian hit. This incredible project has allowed us to bring some sense of comfort and safety to the incredible survivors we’ve had the honor to assist and relocate in their new temporary homes. We are committed to making a difference and delivering exceptional experiences to our clients.",
+    "state": "State of Louisiana - 2021"
+  }
+]
