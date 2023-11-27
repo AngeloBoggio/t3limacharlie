@@ -8,7 +8,7 @@ interface TestimonialProps {
 
 const Testimonial: React.FC<TestimonialProps> = ({ quote, author, title }) => {
   return (
-    <div className="m-2 rounded bg-white p-4 shadow-md">
+    <div className="m-2 rounded border bg-white p-4 text-lg shadow-lg">
       <p className="italic text-gray-600">"{quote}"</p>
       <p className="mt-4 font-bold text-gray-800">{author}</p>
       <p className="text-sm text-gray-500">{title}</p>
@@ -53,32 +53,34 @@ const CustomerTestimonials: React.FC = () => {
   ];
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <h2 className="mb-6 text-center text-4xl font-bold">
-        OUR CUSTOMERS AND WHAT THEY ARE SAYING
-      </h2>
-      <div className="mb-6 text-center text-xl">
-        <p>
-          We are providing and managing hundreds of units and homes each year,
-          for clients such as...
-        </p>
-      </div>
-      <div className="mb-10 grid grid-cols-4 gap-4 p-4">
-        {logos.map((logo, index) => (
-          <div key={index} className="flex items-center justify-center">
-            <img
-              src={logo}
-              alt={`Logo ${index + 1}`}
-              className="h-auto max-w-full"
-            />
-          </div>
-        ))}
-      </div>
+    <div className="bg-gray-100">
+      <div className="container mx-auto mt-20 px-4 py-8">
+        <h2 className="mb-6 text-center text-5xl font-bold">
+          OUR CUSTOMERS AND WHAT THEY ARE SAYING
+        </h2>
+        <div className="mb-6 text-center text-2xl">
+          <p>
+            We are providing and managing hundreds of units and homes each year,
+            for clients such as...
+          </p>
+        </div>
+        <div className="mb-10 grid grid-cols-4 gap-4 p-4">
+          {logos.map((logo, index) => (
+            <div key={index} className="flex items-center justify-center">
+              <img
+                src={logo}
+                alt={`Logo ${index + 1}`}
+                className="h-auto max-w-full"
+              />
+            </div>
+          ))}
+        </div>
 
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-        {testimonials.map((testimonial, index) => (
-          <Testimonial key={index} {...testimonial} />
-        ))}
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+          {testimonials.map((testimonial, index) => (
+            <Testimonial key={index} {...testimonial} />
+          ))}
+        </div>
       </div>
     </div>
   );

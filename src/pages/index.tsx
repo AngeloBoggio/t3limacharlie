@@ -16,7 +16,7 @@ export default function Home() {
         <meta name="description" content="Website for Init" />
       </Head>
 
-      <main className="">
+      <main className="bg-gray-100">
         <NavBar />
         <Jumbotron />
         <Message />

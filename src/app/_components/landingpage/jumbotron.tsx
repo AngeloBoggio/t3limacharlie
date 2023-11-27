@@ -4,13 +4,21 @@ export default function Jumbotron() {
   return (
     <section className="bg-gray-600 bg-[url('/images/realestate.png')] bg-center bg-no-repeat bg-blend-multiply">
       <div className="mx-auto flex flex-col justify-center  px-4 py-24 text-center lg:py-56">
-        <h1 className="mb-4 text-3xl font-extrabold leading-none tracking-tight text-white md:text-5xl lg:text-6xl">
-          SAFE-EFECTIVE HOUSING… WHEN NEEDED!
-        </h1>
-        <p className="mb-8 text-lg font-normal text-gray-300 sm:px-16 lg:px-48 lg:text-xl">
-          We combine amazing 24 hour customer service with an award winning
-          network to bring you an unforgettable housing experience.
-        </p>
+        <div className="flex justify-center">
+          <div className="max-w-4xl">
+            <h1 className="mb-4 text-5xl font-extrabold leading-none tracking-tight text-white md:text-5xl lg:text-6xl">
+              SAFE-EFECTIVE HOUSING… WHEN NEEDED!
+            </h1>
+          </div>
+        </div>
+        <div className="flex justify-center">
+          <div className="max-w-4xl">
+            <p className="mb-8 text-xl font-normal text-gray-300 sm:px-16 lg:px-48 lg:text-xl">
+              We combine amazing 24 hour customer service with an award winning
+              network to bring you an unforgettable housing experience.
+            </p>
+          </div>
+        </div>
         <div className="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0">
           <a
             href="#"
