@@ -1,10 +1,31 @@
-import React, { useState } from "react";
-import Layout from "~/app/_components/landingpage/layout"; // Adjust the path according to your directory structure
-import VideoCard from "~/app/_components/Maui-page/videocard";
-import BenefitsSection from "~/app/_components/Maui-page/infocard";
-import TaxBenefitsSection from "~/app/_components/Maui-page/pdfsection";
-import LocalResourcesSection from "~/app/_components/Maui-page/localresources";
-import MauiContactForm from "~/app/_components/Maui-page/mauiform";
+import React, { useState, useEffect } from "react";
+import dynamic from "next/dynamic";
+
+// Dynamically import components with { ssr: false } if they use browser APIs or client-specific code
+const VideoCard = dynamic(
+  () => import("~/app/_components/Maui-page/videocard"),
+  { ssr: false },
+);
+const BenefitsSection = dynamic(
+  () => import("~/app/_components/Maui-page/infocard"),
+  { ssr: false },
+);
+const TaxBenefitsSection = dynamic(
+  () => import("~/app/_components/Maui-page/pdfsection"),
+  { ssr: false },
+);
+const LocalResourcesSection = dynamic(
+  () => import("~/app/_components/Maui-page/localresources"),
+  { ssr: false },
+);
+const MauiContactForm = dynamic(
+  () => import("~/app/_components/Maui-page/mauiform"),
+  { ssr: false },
+);
+const Layout = dynamic(() => import("~/app/_components/landingpage/layout"), {
+  ssr: false,
+});
+
 // Example array of videos data
 const videos = [
   {
@@ -63,37 +84,50 @@ const videos = [
 
 const MauiReliefHousing = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentVideo, setCurrentVideo] = useState(videos[0]);
 
-  // Ensure that the current index is always within the bounds of the videos array
-  const safeIndex = Math.max(0, Math.min(currentIndex, videos.length - 1));
+  // Handle changing the video index
+  const changeVideoIndex = (newIndex: number) => {
+    const safeIndex = Math.max(0, Math.min(newIndex, videos.length - 1));
+    setCurrentVideo(videos[safeIndex]);
+  };
 
+  // Change to the next video
   const nextVideo = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % videos.length);
+    setCurrentIndex((prevIndex) => {
+      const newIndex = (prevIndex + 1) % videos.length;
+      changeVideoIndex(newIndex);
+      return newIndex;
+    });
   };
 
+  // Change to the previous video
   const prevVideo = () => {
-    setCurrentIndex(
-      (prevIndex) => (prevIndex - 1 + videos.length) % videos.length,
-    );
+    setCurrentIndex((prevIndex) => {
+      const newIndex = (prevIndex - 1 + videos.length) % videos.length;
+      changeVideoIndex(newIndex);
+      return newIndex;
+    });
   };
 
-  // Check if there is a video at the current index
-  const currentVideo = videos[safeIndex]; // Use safeIndex to avoid undefined
+  // Update the current video when currentIndex changes
+  useEffect(() => {
+    changeVideoIndex(currentIndex);
+  }, [currentIndex]);
 
   return (
     <Layout>
-      <div className="container mx-auto p-4">
-        <h1 className="my-4 text-center text-3xl font-bold">
+      <div className="container mx-auto p-4 ">
+        <h1 className="my-4 text-center text-6xl font-bold">
           Maui Relief Housing
         </h1>
-        {currentVideo && ( // Render VideoCard only if currentVideo is not undefined
+        {currentVideo && (
           <VideoCard
             video={currentVideo}
             onNext={nextVideo}
             onPrevious={prevVideo}
           />
         )}
-        {/* You can add additional content here */}
       </div>
       <BenefitsSection />
       <TaxBenefitsSection />

@@ -73,7 +73,7 @@ const ServicesList: React.FC = () => {
       <div className="container mx-auto mb-10 flex flex-col justify-center">
         <div className="flex justify-center">
           <div className="max-w-2xl">
-            <h1 className="mb-10 text-5xl font-bold">What We Provide</h1>
+            <h1 className="mb-10 text-6xl font-bold">What We Provide</h1>
           </div>
         </div>
         <div className="flex-col-4 flex justify-center gap-20">

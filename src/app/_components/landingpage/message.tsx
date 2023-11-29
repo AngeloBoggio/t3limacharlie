@@ -1,6 +1,6 @@
 export default function Message() {
   return (
-    <section className="flex justify-center bg-gray-100 text-gray-900">
+    <section className="mb-14 mt-5 flex justify-center bg-gray-100 text-gray-900">
       <div className="max-w-9xl">
         <div className="px-4 py-12 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center gap-10">

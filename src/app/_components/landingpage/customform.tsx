@@ -9,7 +9,7 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="col-2 mt-20 flex h-full gap-20">
+    <div className="col-2 mb-0 mt-20 flex h-full gap-16">
       <div className="ml-28 flex max-w-7xl justify-center">
         <div className="flex max-w-3xl flex-col justify-center gap-10">
           <h2 className=" text-6xl font-bold">Are we the ones for you?</h2>

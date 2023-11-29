@@ -2,10 +2,7 @@ export default function NavBar() {
   return (
     <nav className="sticky top-0 z-50 border-gray-200 bg-white dark:bg-gray-900">
       <div className="max-w-screen-3xl mx-auto flex flex-wrap items-center justify-between p-4">
-        <a
-          href="https://flowbite.com/"
-          className="flex items-center space-x-3 rtl:space-x-reverse"
-        >
+        <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
           <img src="/images/limacharlie.png" style={{ height: "80px" }} />
         </a>
         <button

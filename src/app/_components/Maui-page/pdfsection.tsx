@@ -6,8 +6,8 @@ const TaxBenefitsSection = () => {
 
   return (
     <section className="bg-white p-6">
-      <h2 className="mb-4 text-center text-2xl font-bold">Did you know?</h2>
-      <p className="mb-2 text-center text-lg">
+      <h2 className="mb-4 text-center text-5xl font-bold">Did you know?</h2>
+      <p className="mb-5 text-center text-xl">
         Long Term Rentals offer Homeowners incredible{" "}
         <span className="font-bold">tax benefits</span> of up to $200,000?
       </p>
