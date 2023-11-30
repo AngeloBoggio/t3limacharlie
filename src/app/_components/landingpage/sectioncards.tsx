@@ -76,7 +76,7 @@ const ServicesList: React.FC = () => {
             <h1 className="mb-10 text-6xl font-bold">What We Provide</h1>
           </div>
         </div>
-        <div className="flex-col-4 flex justify-center gap-20">
+        <div className="flex-col-4 flex justify-center gap-16">
           {services.map((service, index) => (
             <ServiceSection key={index} {...service} />
           ))}

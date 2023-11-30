@@ -1,8 +1,8 @@
 export default function Message() {
   return (
-    <footer className="m-4 rounded-lg border border-gray-400 bg-slate-600 shadow-sm dark:bg-gray-800">
+    <footer className="m-4 rounded-lg border border-gray-400 bg-gray-700 shadow-md dark:bg-gray-800">
       <div className="mx-auto w-full max-w-screen-xl p-4  md:flex md:items-center md:justify-between">
-        <span className="text-md text-white hover:text-red-500 dark:text-gray-400 sm:text-center">
+        <span className="text-xl text-white hover:text-red-500 dark:text-gray-400 sm:text-center">
           <a href="https://flowbite.com/" className=" hover:underline">
             Lima Charlie Inc
           </a>

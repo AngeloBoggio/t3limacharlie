@@ -23,37 +23,31 @@ const LocalResourcesSection = () => {
 
   return (
     <section className="bg-primary">
-      <div className="flex justify-center p-20">
-        <div className="max-w-9xl rounded-lg bg-red-200 p-10">
-          <h2 className="mb-6 text-center text-7xl font-bold">
-            Local Resources
-          </h2>
-          <p className="mb-8 text-center text-xl">
-            In Solidarity with Lahaina: Resources for Support
-          </p>
-          <div className="flex justify-center">
-            <div className="max-w-3xl text-xl">
-              <p>
-                If you are a local or a survivor of the Lahaina fires, our
-                hearts go out to you during this challenging time, and we
-                sincerely hope that you and your loved ones are safe and
-                supported...
-              </p>
+      <div className="flex flex-col justify-center p-20">
+        <h2 className="mb-3 text-center text-7xl font-bold">Local Resources</h2>
+        <div className="flex justify-center">
+          <div className="mt-4 max-w-4xl rounded-lg border bg-red-100 p-7 shadow-2xl">
+            <p className="mb-6 text-center text-xl font-bold">
+              In Solidarity with Lahaina: Resources for Support
+            </p>
+            <div className="flex justify-center">
+              <div className="max-w-4xl  text-center text-xl">
+                <p>
+                  If you are a local or a survivor of the Lahaina fires, our
+                  hearts go out to you during this challenging time, and we
+                  sincerely hope that you and your loved ones are safe and
+                  supported...
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <div className="flex justify-center">
-        <div className="max-w-8xl relative flex items-center">
-          <button
-            onClick={() => scroll(-200)}
-            className="absolute left-0 z-10 rounded-r bg-black px-4 py-2 font-bold text-white hover:bg-gray-600"
-          >
-            &#10094;
-          </button>
+      <div className="mb-20 flex justify-center">
+        <div className="relative flex max-w-full items-center">
           <div
             ref={carouselRef}
-            className="scrollbar-hide flex space-x-4 overflow-x-scroll"
+            className="carousel scrollbar-hide flex space-x-4 overflow-x-scroll"
           >
             <ResourceCard title="FEMA">
               <p>
@@ -123,12 +117,6 @@ const LocalResourcesSection = () => {
 
             {/* Repeat for each ResourceCard */}
           </div>
-          <button
-            onClick={() => scroll(200)}
-            className="absolute right-0 z-10 rounded-l bg-black px-4 py-2 font-bold text-white hover:bg-gray-600"
-          >
-            &#10095;
-          </button>
         </div>
       </div>
     </section>

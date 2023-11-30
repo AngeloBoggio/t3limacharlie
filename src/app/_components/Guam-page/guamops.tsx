@@ -1,74 +1,110 @@
-import React from "react";
+// ... other resources
+import React, { useRef, useEffect } from "react";
 
-interface GuamServicesProps {
+interface ResourceProps {
+  image: string;
   title: string;
   description: string;
-  subdescription: string;
 }
 
-const ServiceSection: React.FC<GuamServicesProps> = ({
+const ResourceCard: React.FC<ResourceProps> = ({
+  image,
   title,
   description,
-  subdescription,
 }) => {
+  // Adjust the card width here to ensure they fit nicely within the container
   return (
-    <div className="my-6">
-      <h2 className="text-xl font-bold text-red-600">{title}</h2>
-      <p className="mt-2 text-base text-gray-600">{description}</p>
-      <p className="mt-2 text-base text-gray-600">{subdescription}</p>
+    <div
+      className="mx-2 mb-2 flex-none overflow-hidden rounded-lg bg-white shadow"
+      style={{ width: "calc(100% / 3 - 1rem)" }}
+    >
+      <img src={image} alt={title} className="h-56 w-full object-cover" />
+      <div className="p-4">
+        <h2 className="mb-2 text-xl font-semibold">{title}</h2>
+        <p className="text-base">{description}</p>
+      </div>
     </div>
   );
 };
 
-const GuamOps: React.FC = () => {
-  const services = [
+const ResourceSection: React.FC = () => {
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const resources = [
     {
-      title: "Support Your Community",
+      image:
+        "https://via.placeholder.com/360x200.png?text=Community+Rebuilding",
+      title: "Unwavering Commitment to Helping Communities Rebuild",
       description:
-        "Our partnership goes beyond the financial aspect. By leasing to us, you actively contribute to the larger mission of community rebuilding. Your property becomes a safe haven for families and individuals striving to regain stability in the face of disaster. It's a unique Opportunity to make a lasting impact while maintaing the financial health of your property.",
-      subdescription:
-        "Join us in this win-win collaboration that combines financial security with the satisfaction of knowing that you are playing a vital role in helping communities rebuild and thrive. Your properties can be more than just assets; they can be a beacon of hope for those who need it most.",
+        "At Lima Charlie Inc, our mission is not bound by geography or circumstance. We stand resolute in our dedication to aiding communities in their path to recovery after natural disasters. Our commitment to providing safe, secure housing remains steadfast.",
     },
     {
-      title: "Unwavering Commitment to helping communities rebuild",
+      image: "https://via.placeholder.com/360x200.png?text=Market+Rate+Leases",
+      title: "Win-Win Collaboration: 12–24 Month Leases at Market Rates",
       description:
-        "At Lima Charlie Inc, our mission is not bound by geography or circumstance. We stand resolute in our dedication to aiding communities in their path to recory after natural disasters.",
-      subdescription:
-        "From the heart of Hawaii to the shores of Guam and beyond, our commitment to providing safe, secure housing remains steadfast. No disaster is too great, no location is too remote; we are there, side by side with FEMA, ready to assist, house, and rebuild communities in their time of need.",
+        "Lima Charlie Inc offers a win-win partnership that not only preserves your rental income but also allows you to be a part of community rebuilding. Enjoy the benefits of stable, long-term income with our flexible leasing options.",
     },
     {
-      title: "Win-Win Collaboration: 12-24 Month Leases at Market Rates",
-      description:
-        "Lima Charlie Inc offers a win-win partnership that not only preserves your rental income but also allows you to be a part of community rebuilding.",
-      subdescription:
-        "When you lease your properties to us, you can enjoy the benefits of stable, long-term income. Rest Assured, your rental income remains intact, ensuring a steady cash flow for your property.",
-    },
-    {
+      image: "https://via.placeholder.com/360x200.png?text=FEMA+Backed",
       title: "We are backed by FEMA",
       description:
-        "We've stood as a reliable housing solutions provider to FEMA and communities nationwide for years. Our portfolio of successful projects span across six states, including Hawaii, where we've played a pivotal role in restoring normalcy to disaster-affected areas.",
-      subdescription:
-        "Our association with FEMA empowers us to respond swiftly and effectively to natural disasters, wherever they may occur. It provides us with valuable resources, expertise, and a coordinated approach that ensures seamless assistance to those in need. This partnership not only amplifies our reach but also magnifies our impact. Together, we create a formidable force.",
+        "We've stood as a reliable housing solutions provider to FEMA and communities nationwide for years. Our association with FEMA empowers us to respond swiftly and effectively to natural disasters, providing valuable resources and expertise.",
     },
     {
-      title: "Our Successful Ventures",
+      image: "https://via.placeholder.com/360x200.png?text=Safe+Housing",
+      title: "Ensuring Safe and Secure Housing Solutions",
       description:
-        "Since our inception, Lima Charlie Inc has been at the forefront of disaster recory housing, driven by our unwavering commitment to helping communiteis in their most vulnerable moments. Our history is a tale of continuous growth, experience, and a deep sense of purpose",
-      subdescription:
-        "Our extensive experience in managing hundreds of properties showcases our competence in navigating the complexities of disaster recovery house. Every project has been a unique opportunity to make a difference, and every community we've touched has been a testament to our ability to rebuild, restore, and renew.",
+        "Our properties are more than just assets; they are a beacon of hope. We ensure that each home is not only a structure but also a secure and welcoming space for those who need it most.",
     },
-
-    // ... other services
+    {
+      image: "https://via.placeholder.com/360x200.png?text=Infrastructure",
+      title: "Infrastructure Development and Support",
+      description:
+        "We go beyond housing; our projects also encompass infrastructure development, supporting the foundation for community growth and prosperity.",
+    },
   ];
+  const clonedResources = [...resources, ...resources];
+
+  useEffect(() => {
+    const scrollContainer = scrollContainerRef.current;
+    const totalWidth = scrollContainer?.scrollWidth;
+    let requestAnimationId: number;
+
+    // Helper function to scroll
+    const scroll = () => {
+      if (scrollContainer) {
+        // If we've reached the end of the container, reset to start
+        if (scrollContainer.scrollLeft >= totalWidth! / 2) {
+          scrollContainer.scrollLeft = 0;
+        }
+        // Otherwise, continue scrolling
+        scrollContainer.scrollLeft += 1;
+      }
+      requestAnimationId = requestAnimationFrame(scroll);
+    };
+
+    // Start scrolling
+    requestAnimationId = requestAnimationFrame(scroll);
+
+    return () => {
+      // Cancel the animation frame on cleanup
+      cancelAnimationFrame(requestAnimationId);
+    };
+  }, []);
 
   return (
-    <div className="container mx-auto px-4">
-      <h1 className="flex justify-center text-3xl">Why Lima Charlie</h1>
-      {services.map((service, index) => (
-        <ServiceSection key={index} {...service} />
-      ))}
+    <div className="container mx-auto mb-20 max-w-full">
+      <h1 className="mb-7 text-center text-5xl font-bold">What We Provide</h1>
+      <div
+        ref={scrollContainerRef}
+        className="scrollbar-hide flex overflow-x-auto"
+      >
+        {/* Duplicate the resources twice for a seamless transition */}
+        {[...resources, ...resources].map((resource, index) => (
+          <ResourceCard key={index} {...resource} />
+        ))}
+      </div>
     </div>
   );
 };
 
-export default GuamOps;
+export default ResourceSection;

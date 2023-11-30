@@ -2,11 +2,11 @@ import React from "react";
 
 export default function GetStarted() {
   return (
-    <div className=" mt-10 flex justify-center gap-48">
+    <div className="mt-16 flex justify-center gap-36">
       <div className="">
         <img
           src="/images/callus.png"
-          className="mx-auto flex w-2/4 justify-center"
+          className="mx-auto flex w-1/3 justify-center"
           alt="Lima Charlie Logo"
         />
         <div className="text-center">
@@ -18,7 +18,7 @@ export default function GetStarted() {
         <div className="text-center">
           <img
             src="/images/emailus.png"
-            className="mx-auto flex w-2/4 justify-center"
+            className="mx-auto flex w-1/3 justify-center"
             alt="Lima Charlie Logo"
           />
           <p className="mt-3 text-3xl font-bold">Email us</p>
@@ -29,7 +29,7 @@ export default function GetStarted() {
         <div className="text-center">
           <img
             src="/images/signoutform.png"
-            className="mx-auto flex w-2/3 justify-center"
+            className="mx-auto flex w-1/2 justify-center"
             alt="Lima Charlie Logo"
           />
 

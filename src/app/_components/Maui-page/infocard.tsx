@@ -62,7 +62,7 @@ const BenefitsSection = () => {
     // ... other services
   ];
   return (
-    <section className="mb-10 mt-20 py-8 text-black">
+    <section className="mb-10 mt-10 py-8 text-black">
       <div className="">
         <div className="container mx-auto mb-10 flex flex-col justify-center">
           <div className="flex justify-center">
